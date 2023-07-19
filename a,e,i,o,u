@@ -1,0 +1,55 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	fmt.Println("Enter number :")
+	var num_a, num_e, num_i, num_o, num_u int
+	var input string
+	for {
+		fmt.Scan(&input)
+
+		//หยุดทุกอย่าง
+		input = strings.ToLower(input)
+		if input == "q" || input == "exit" {
+			break
+		}
+
+		//ทำให้ตรวจจับข้อความแล้วนับเลข
+		for _, num := range input {
+			if num == 'a' {
+				num_a++
+			} else if num == 'e' {
+				num_e++
+			} else if num == 'i' {
+				num_i++
+			} else if num == 'o' {
+				num_o++
+			} else if num == 'u' {
+				num_u++
+			}
+
+		}
+
+	}
+
+	//แสดงเฉพาะตัวที่มีใน input
+	if num_a > 0 {
+		fmt.Printf("a: %d\n", num_a)
+	}
+	if num_e > 0 {
+		fmt.Printf("e: %d\n", num_e)
+	}
+	if num_i > 0 {
+		fmt.Printf("i: %d\n", num_i)
+	}
+	if num_o > 0 {
+		fmt.Printf("o: %d\n", num_o)
+	}
+	if num_u > 0 {
+		fmt.Printf("u: %d\n", num_u)
+	}
+}
