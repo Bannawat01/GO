@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+func main() {
+	var input [10]int
+
+	// ใช้ลูป for หากต้องการให้ผู้ใช้ป้อนค่าทุกตัวในอาร์เรย์
+	for i := 0; i < 10; i++ {
+		fmt.Printf("Enter element %d: ", i+1)
+		fmt.Scan(&input[i])
+		//ให้ input รับค่าจากแป้นพิมพ์แล้วนำไปมอดกับ 2 จะได้ 0(คู่) และ 1(คี่)
+		if input[i]%2 == 0 {
+			fmt.Println("even")
+		} else {
+			fmt.Println("odd")
+		}
+	}
+
+}
