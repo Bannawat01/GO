@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func main() {
+	//รับค่าโดยใช้ตัวแปร num
 	fmt.Print("Enter number : ")
 	var num int
 	fmt.Scan(&num)
