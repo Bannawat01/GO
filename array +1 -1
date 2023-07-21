@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+func main() {
+	var input int
+	num := [8]int{7, 9, 12, 13, 22, 29, 30, 35}
+
+	for {
+		fmt.Print("Enter number: ")
+		fmt.Scan(&input)
+
+		if input < 0 || input > 6 {
+			fmt.Println("Invalid number")
+
+		} else {
+			fmt.Printf("%v, %v\n", num[input+1], num[input-1])
+			break
+		}
+	}
+}
