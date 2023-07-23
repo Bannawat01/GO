@@ -24,3 +24,33 @@ IDD:
 	}
 
 }
+
+//loop***************************************//
+package main
+
+import "fmt"
+
+func main() {
+
+	var name, lastname string
+	var id int
+
+	fmt.Print("Name :")
+	fmt.Scan(&name)
+
+	fmt.Print("Lastname :")
+	fmt.Scan(&lastname)
+	for {
+		fmt.Print("ID :")
+		fmt.Scan(&id)
+
+		if id == 0 {
+			fmt.Println("enter id agian")
+
+		} else if id != 0 {
+			fmt.Printf("%d %v %v\n", id, name, lastname)
+			break
+		}
+	}
+
+}
