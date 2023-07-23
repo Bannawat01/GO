@@ -10,7 +10,7 @@ func main() {
 		fmt.Print("Enter number: ")
 		fmt.Scan(&input)
 
-		if input < 0 || input > 6 {
+		if input <= 0 || input >= 6 {
 			fmt.Println("Invalid number")
 
 		} else {
