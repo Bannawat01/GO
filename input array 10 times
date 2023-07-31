@@ -1,0 +1,28 @@
+package main
+
+import "fmt"
+
+func main() {
+	var number [10]int
+	var input int
+
+	for i := 0; i < 10; i++ {
+		fmt.Print("Enter number: ")
+		fmt.Scanln(&input)
+		number[i] = input
+	}
+
+	for {
+
+		fmt.Print("number 1-10 :")
+		fmt.Scanln(&input)
+		if input >= 1 && input <= 10 {
+			fmt.Println(number[input-1])
+			break
+		} else {
+			fmt.Println("Enter number agian")
+		}
+
+	}
+
+}
