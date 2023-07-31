@@ -1,0 +1,10 @@
+var number [2]string
+	for i := 0; i < 2; i++ {
+		if i == 0 {
+			fmt.Print("First name: ")
+		} else {
+			fmt.Print("Last name: ")
+		}
+		fmt.Scan(&number[i])
+	}
+	fmt.Printf("%v %v\n", number[0], number[1])
