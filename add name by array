@@ -1,0 +1,29 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	var stdName = []string{"a", "i", "o", "u"}
+	var name string
+
+	for {
+		fmt.Print("Enter name :")
+		fmt.Scan(&name)
+
+		name = strings.ToLower(name)
+		if name == "q" || name == "Q" {
+			break
+		}
+
+		stdName = append(stdName, name)
+
+	}
+
+	for i := 0; i < len(stdName); i++ {
+		fmt.Println(stdName[i])
+	}
+
+}
