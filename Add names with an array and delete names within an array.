@@ -1,0 +1,54 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	var name []string
+	var addname string
+
+	for {
+		fmt.Print("Enter name : ")
+		fmt.Scan(&addname)
+
+		addname = strings.ToLower(addname)
+		if addname == "q" {
+			break
+		}
+		name = append(name, addname)
+	}
+
+	fmt.Print("Do you want to delete? (yes/no): ")
+	var input string
+	fmt.Scan(&input)
+	input = strings.ToLower(input)
+
+	for {
+		if input == "yes" {
+			fmt.Print("Enter number of the name to delete: ")
+			var inputDelete int
+			fmt.Scan(&inputDelete)
+
+			if inputDelete >= 1 && inputDelete <= len(name) {
+				name = append(name[:inputDelete-1], name[inputDelete:]...)
+				for i, n := range name {
+					fmt.Printf("%v. %v\n", i+1, n)
+				}
+				break
+			}
+
+		} else if input == "no" {
+			for i, n := range name {
+				fmt.Printf("%v. %v\n", i+1, n)
+			}
+
+			break
+		} else {
+			fmt.Println("Invalid number.")
+		}
+
+	}
+
+}
