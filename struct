@@ -1,0 +1,51 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+type student struct {
+	name   string
+	points int
+	grade  string
+}
+
+func main() {
+	var students []student
+	for {
+		var std student
+		fmt.Print("Enter name: ")
+		fmt.Scan(&std.name)
+		isQ := strings.ToLower(std.name) == "q"
+		isExit := strings.ToLower(std.name) == "exit"
+		if isQ || isExit {
+			break
+		}
+		for {
+			var points_text string
+			fmt.Printf("Enter %s points: ", std.name)
+			fmt.Scan(&points_text)
+			isQ := strings.ToLower(points_text) == "q"
+			isExit := strings.ToLower(points_text) == "exit"
+			if isQ || isExit {
+				break
+			}
+			points, _ := strconv.Atoi(points_text)
+			std.points += points
+		}
+		if std.points >= 80 {
+			std.grade = "A"
+		} else if std.points >= 70 {
+			std.grade = "B"
+		} else {
+			std.grade = "F"
+		}
+		students = append(students, std)
+	}
+	fmt.Println("-------------------------Output----------------------------")
+	for _, std := range students {
+		fmt.Printf("%s %d points, %s\n", std.name, std.points, std.grade)
+	}
+}
