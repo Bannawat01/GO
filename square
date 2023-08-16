@@ -1,15 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
 	fmt.Print("Enter number :")
 	var input int
-	fmt.Scanln(&input)
+	fmt.Scan(&input)
 
-	for i := 0; i < input; i++ {
-		for j := 0; j < input; j++ {
-			fmt.Print("*")
+	loopCount := int(math.Abs(float64(input)))
+
+	for i := 0; i < loopCount; i++ {
+		for j := 0; j < loopCount; j++ {
+			fmt.Print("#")
 		}
 		fmt.Println()
 	}
