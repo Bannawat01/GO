@@ -1,0 +1,21 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	fmt.Print("Enter number: ")
+	var input int
+	fmt.Scan(&input)
+
+	input = int(math.Abs(float64(input)))
+
+	for i := 1; i <= input; i++ {
+		for j := 1; j <= i; j++ {
+			fmt.Print("#")
+		}
+		fmt.Println()
+	}
+}
