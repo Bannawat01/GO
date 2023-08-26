@@ -1,0 +1,71 @@
+package main
+
+import (
+	"fmt"
+)
+
+type square struct {
+	width  float32
+	length float32
+}
+
+type triangle struct {
+	width  float32
+	height float32
+}
+
+func print_tringle(area triangle) {
+	fmt.Printf("this triangle width = %v this triangle length = %v", area.width, area.height)
+}
+
+func calculate_triangle(area triangle) float32 {
+	var ans float32 = 0.5 * area.height * area.width
+	return ans //1 / 2 * area.length * area.width
+}
+
+func find_heighest_tringle(h1, w2 triangle) (triangle, triangle) {
+	if h1.width > w2.height {
+		return h1, w2
+	}
+	return w2, h1
+}
+
+func create_two_triangle(w, h float32) (triangle, triangle) {
+	return triangle{width: w, height: h}, triangle{width: w, height: h}
+}
+
+func sum_height_of_triangle(area ...triangle) (sum float32) {
+	for _, h := range area {
+		sum += h.height
+	}
+	return
+}
+func compare_triangle_area(t1, t2 triangle) triangle {
+	if calculate_triangle(t1) > calculate_triangle(t2) {
+		return t1
+	}
+	return t2
+}
+
+func find_tringle_has_max_area(T_area ...triangle) (_area triangle) {
+	if len(T_area) > 0 {
+		_area = T_area[0]
+		for i := 1; i < len(T_area); i++ {
+			_area = compare_triangle_area(_area, T_area[i])
+		}
+	}
+	return
+}
+
+func main() {
+	// สร้างสามเหลี่ยมตัวอย่าง
+	triangle1 := triangle{16, 70}
+	triangle2 := triangle{width: 8, height: 6}
+	triangle3 := triangle{width: 4, height: 12}
+
+	// เรียกใช้ฟังก์ชันเพื่อหาสามเหลี่ยมที่มีพื้นที่มากที่สุด
+	maxAreaTriangle := find_tringle_has_max_area(triangle1, triangle2, triangle3)
+
+	// แสดงผลสามเหลี่ยมที่มีพื้นที่มากที่สุด
+	fmt.Println("Triangle with max area:", maxAreaTriangle)
+}
