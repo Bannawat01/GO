@@ -8,3 +8,46 @@ var number [2]string
 		fmt.Scan(&number[i])
 	}
 	fmt.Printf("%v %v\n", number[0], number[1])
+
+****************************************************
+
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+type circle struct {
+	pi     float32
+	radius float32
+}
+
+func main() {
+	var _circle circle
+	_circle.pi = 3.14
+	area := circle_calculate(_circle)
+
+	for {
+		fmt.Print("Enter radius : ")
+		var input string
+		fmt.Scan(&input)
+
+		if strings.ToLower(input) == "q" || strings.ToLower(input) == "exit" {
+			fmt.Printf("Circle area = %v\n", area)
+			break
+		}
+
+		radius_, _ := strconv.ParseFloat(input, 32)
+
+		_circle.radius = float32(radius_)
+		area = circle_calculate(_circle)
+		fmt.Printf("Circle area = %v\n", area)
+	}
+}
+
+func circle_calculate(calculate circle) float32 {
+	area := calculate.pi * calculate.radius * calculate.radius
+	return area
+}
