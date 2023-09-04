@@ -9,7 +9,7 @@ var number [2]string
 	}
 	fmt.Printf("%v %v\n", number[0], number[1])
 
-****************************************************
+************************************************************************************************************************************************************
 
 package main
 
@@ -51,3 +51,31 @@ func circle_calculate(calculate circle) float32 {
 	area := calculate.pi * calculate.radius * calculate.radius
 	return area
 }
+
+************************************************************************************************************************************************************
+
+type triangle struct {
+	width float64
+	high  float64
+}
+
+func main() {
+	var P_triangle triangle
+	var calculate []float64
+	for i := 0; i < 3; i++ {
+		fmt.Print("Enter number : ")
+		fmt.Scan(&P_triangle.high, &P_triangle.width)
+		result := calculate_triangle(P_triangle)
+		calculate = append(calculate, result)
+
+	}
+	for _, area := range calculate {
+		fmt.Printf("trianfle = %v\n", area)
+	}
+
+}
+
+func calculate_triangle(triangle_fn triangle) float64 {
+	return 0.5 * triangle_fn.high * triangle_fn.width
+}
+
