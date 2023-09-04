@@ -1,0 +1,26 @@
+package main
+
+import "fmt"
+
+type number struct {
+	num1 int
+	num2 int
+}
+
+func main() {
+	var i []number
+
+	var input number
+	fmt.Print("Enter number : ")
+	fmt.Scan(&input.num1, &input.num2)
+
+	i = append(i, input)
+
+	result := plused_number(input)
+	fmt.Printf("%d + %d = %d\n", input.num1, input.num2, result)
+
+}
+func plused_number(calculate_number number) (result_fn int) {
+	result_fn = calculate_number.num1 + calculate_number.num2
+	return
+}
