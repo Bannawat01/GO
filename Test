@@ -79,3 +79,50 @@ func calculate_triangle(triangle_fn triangle) float64 {
 	return 0.5 * triangle_fn.high * triangle_fn.width
 }
 
+************************************************************************************************************************************************************
+
+package main
+
+import "fmt"
+
+type manaa struct {
+	nam_tom int
+	cola    int
+}
+
+func main() {
+	var bottla_tom, bottla_cola manaa
+
+	var input int
+	fmt.Print("Enter number : ")
+	fmt.Scan(&input)
+	if input == 1 {
+		var tom_input int
+		fmt.Print("Enter number of bottla : ")
+		fmt.Scan(&tom_input)
+
+		fmt.Print("Nam tom is ")
+		result := fn_namtom(tom_input, bottla_tom)
+		fmt.Println(result)
+
+	} else if input == 2 {
+		var cola_input int
+		fmt.Print("Enter number of bottla : ")
+		fmt.Scan(&cola_input)
+
+		fmt.Print("Cola is ")
+		result := fn_cola(cola_input, bottla_cola)
+		fmt.Println(result)
+	}
+
+}
+
+func fn_namtom(input_ int, bottla_tom manaa) int {
+	bottla_tom.nam_tom = 100 * input_
+	return bottla_tom.nam_tom
+}
+
+func fn_cola(input_ int, bottla_cola manaa) int {
+	bottla_cola.cola = 50 * input_
+	return bottla_cola.cola
+}
